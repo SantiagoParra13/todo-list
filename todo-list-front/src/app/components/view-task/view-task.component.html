@@ -1,0 +1,22 @@
+<div class="p-7 relative">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div *ngFor="let task of task">
+            <div class="block max-w-sm p-4 border:bg-gray-700 backdrop-blur-sm hover:backdrop-blur-lg border-2 relative">
+                <div>
+                    <form [formGroup]="taskForm" (ngSubmit)="updateTask(task.id)">
+                        <input type="checkbox"formControlName="completed" [checked]="task.completed">
+                    </form>
+                </div>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                    {{ task.title }}
+                </h5>
+                <p class="font-normal text-gray-700 dark:text-gray-400">
+                    {{ task.description }}
+                </p>
+                <div class="absolute top-0 right-0 p-2">
+                    <p-button (onClick)="eliminatedTask(task.id)" icon="pi pi-times" [rounded]="true" class="bg-white rounded-bl-full text-right inline p-1"></p-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+
+<div class="card flex justify-content-center">
+    <p-button (click)="showDialog()" icon="pi pi-external-link" label="Show"></p-button>
+    <p-dialog  header="Crear Nueva Tarea" [(visible)]="visible" [style]="{width: '20vw'}">
+
+       <div >
+        <form (ngSubmit)="saveTask()">
+            <label for="title">Titulo</label>
+            <input type="text"  id="title" name="title" [(ngModel)]="taskForm.title">
+            <hr>
+            <label for="description">Descripcion</label>
+            <input type="text" id="description" name="description" [(ngModel)]="taskForm.description">
+            <hr>
+            <label for="dateTime">Fecha  </label>
+            <input type="date" id="dateTime" name="dateTime" [(ngModel)]="taskForm.dateTime">
+            <button type="submit">Guardar</button>
+        </form>
+       </div>
+    </p-dialog>
+</div>

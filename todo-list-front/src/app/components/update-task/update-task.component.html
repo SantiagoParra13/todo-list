@@ -1,0 +1,29 @@
+<div class="card flex justify-content-center">
+    <p-dialog class="bg-white" [(visible)]="visible" [style]="{width: '20vw'}">
+        <div class="backdrop-blur-sm hover:backdrop-blur-lg rounded-md p-4">
+            <h1 class="font-bold text-white text-center mb-4">Crear Nueva Task </h1>
+            <form [formGroup]="taskForm" (ngSubmit)="updateTask()">
+                <div class="mb-4">
+                    <label for="title" class="block text-sm font-medium text-white">Titulo:</label>
+                    <input type="text" id="title" placeholder="Ingrese Titulo" formControlName="title" class="border border-gray-300 rounded-md p-2 w-full" >
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-sm font-medium text-white">Descripcion:</label>
+                    <input type="text" id="description" placeholder="Ingrese Descripcion" formControlName="description" class="border border-gray-300 rounded-md p-2 w-full">
+                </div>
+                <div class="mb-4">
+                    <label for="dateTime" class="block text-sm font-medium text-white">Fecha: </label>
+                    <input type="date" id="dateTime" formControlName="dateTime" class="border border-gray-300 rounded-md p-2 w-full">
+                </div>
+                <div class="text-center">
+                    <button type="submit" [disabled]="taskForm.invalid" class="bg-black text-white  px-4 py-2 rounded-md">Enviar</button>
+                </div>
+                
+            </form>
+        </div>
+    </p-dialog>
+
+    <p-button (click)="showDialog()" icon="pi pi-pencil" class="absolute bottom-4 right-4 bg-white text-black font-bold p-2 rounded-full"></p-button>
+</div>
+
+
